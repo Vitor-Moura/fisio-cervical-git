@@ -1,0 +1,555 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir';
+    /* background-color: #4f50650d */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+button {
+    /* width: 150px; */
+    /* height: 35px; */
+    padding: 5px 8px;
+    background-color: rgb(79, 80, 101);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.24);
+    transition: 0.3s;
+}
+
+.header {
+    background-color: #4f5065;
+    color: white;
+    border-bottom: 3px solid #00c0e8;
+}
+
+.header .container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.agora {
+    font-weight: 700;
+    color: #00c0e8;
+}
+
+.navbar {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    color: white;
+}
+
+/* BANNER */
+
+.banner {
+    color: white;
+    background-image: url(".././assets/imgs/banner-fisio-cervical.jpg");
+    background-size: cover;
+    height: 450px;
+}
+
+.banner p {
+    /* border: 3px solid cyan; */
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    width: 280px;
+    font-size: 36px;
+    margin-left: 350px;
+}
+
+.banner span {
+    font-weight: 800;
+}
+/* você sabia */
+.voce_sabia {
+    padding-bottom: 5px;
+}
+.voce_sabia h1 {
+    text-align: center;
+    color: #4f5065;
+}
+.voce_sabia p {
+    font-size: 19px;
+    text-align: justify;
+    text-indent: 50px;
+}
+
+/* o que é hérnia cervical */
+.o_que {
+    padding: 10px 0;
+    background-color: white;
+}
+.o_que h2 {
+    text-align: start;
+    color: #4f5065;
+    margin-bottom: -5px;
+}
+.o_que p {
+    text-align: justify;
+}
+.o_que img{
+    margin-top: 20px;
+}
+.o_que .conteudo {
+    display: flex;
+}
+
+/* sintomas */
+.sintomas {
+    padding-bottom: 30px;
+    background-color: white;
+}
+.sintomas h2 {
+    text-align: end;
+    color: #4f5065;
+
+}
+.sintomas p {
+    text-align: justify;
+}
+.sintomas img{
+    margin-top: 20px;
+}
+.sintomas .conteudo {
+    display: flex;
+}
+
+/* missao visao valores */
+
+.social {
+    background-color: #E5E5E5;
+    /* border: 3px solid yellowgreen; */
+    padding: 50px 0;
+}
+
+.social .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+/* Como praticar */
+.como_exercitar {
+    color: #4f5065;
+    font-weight: 500;
+    padding: 5px 0 40px 0;
+    background-image: linear-gradient( rgb(0, 192, 232) , rgb(0, 192, 232, 0) );
+    font-size: 18px;
+}
+.como_exercitar h1 {
+    text-align: center;
+}
+.como_exercitar p {
+    padding-right: 50px;
+    text-align: justify;
+}
+
+.como_exercitar .conteudo {
+    display: flex;
+    justify-content: center;
+}
+
+/* usar este bloco para explicar margin e padding*/
+.social .titulo {
+    /* border: 3px solid pink; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.social h2 {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    align-self: center; 
+    justify-self: center;
+    text-align: center;
+    color: #E6005A;
+    margin: 0;
+    /* border: 3px solid orange; */
+}
+
+.social .boxes {
+    display: flex;
+    /* border: 3px solid blue; */
+}
+
+.social .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 33%;
+    /* border: 3px solid yellow; */
+}
+
+.social .box img {
+    width: 150px;
+    align-self: center;
+}
+
+.social .box h4 {
+    color: #E6005A;
+    margin-top: 30px;
+}
+
+/* DASHBOARD */
+.pergunta {
+    height: 500px;
+}
+
+.pergunta .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.caixa_pergunta {
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient( #4f5065, #00c0e8);
+    color: white;
+    border: 1px solid #4f5065;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caixa_pergunta:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.24);
+    transition: 0.3s;
+}
+
+/* Exercícios */
+
+.exercicios_titulo {
+    color: #4f5065;
+    text-align: center;
+}
+
+.exercicios .container {
+    display: flex;
+    padding: 10px;
+    margin: 20px auto;
+    justify-content: space-between;
+    border: 1px solid #4f506535;
+}
+
+.exercicios .container img {
+    width: 400px;
+    height: 225px;
+    border: 2px solid rgb(0, 192, 232);
+}
+
+.exercicios .container p {
+    text-align: justify;
+    margin-block-start: 0;
+}
+
+.exercicios .container p b {
+    color: #4f5065;
+    font-size: 22px;
+}
+
+.exercicios .explicacao {
+    padding-left: 20px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cronometro {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.exercicios button{
+    width: 172px;
+    height: 45px;
+}
+
+.exercicios .botao_parar{
+    background-color: #00c0e8;
+    border-color: #02b3d7;
+}
+
+.cronometro span {
+    margin: 0 auto;
+    color: #00c0e8;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.div_duracao{
+    display: flex;
+}
+
+.div_duracao .ipt_duracao {
+    width: 160px; 
+    height: 40px;
+    margin-bottom: 10px;
+    border: 1px solid #4f5065;
+    padding: 1px 0px 1px 10px;
+}
+
+.div_duracao p {
+    font-size: 12px;
+    display: flex;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    color: #4f5065;
+    background-color: #4f506541;
+    justify-content: center;
+}
+
+.div_duracao p:hover ~ span {
+    display: block;
+}
+.div_duracao span {
+    display: none;
+    color: #fff;
+    background-color: #00c0e8;
+    width: 200px;
+    padding: 10px;
+    position: relative;
+    top: -40px;
+    left: 5%;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #4f5065;
+    height: 100px;
+    color: white;
+    margin: 50px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid #00c0e8;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+/* LOGIN */
+
+.banner-login {
+    color: white;
+    height: 550px;
+    /* border: 3px solid yellow; */
+    background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png");
+    background-size: cover;
+}
+
+.banner-login .container {
+    height: 550px;
+    /* border: 3px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-login {
+    color: #E6005A;
+}
+
+.banner-login .card {
+    background-color: #E5E5E5;
+    height: 450px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.banner-login a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner-login #div_erros_login {
+    margin-top: 15px;
+}
+
+/* FORMULARIO */
+
+/* input {
+    height: 30px;
+    border: 2px solid #E6005A;
+    border-radius: 10px;
+} */
+
+.btn {
+    font-family: 'Exo 2', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #E6005A;
+    width: 120px;
+    align-self: center;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
+/* PAGINA DOS GRÁFICOS */
+
+.janela {
+    display: flex;
+    width: 100vw;
+    /* height: 100vh; */
+}
+
+.header-left a {
+    text-decoration: none;
+    color: white;
+}
+
+.header-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: 3px solid #32B9CD;
+    background-color: #212124;
+    /* border: 3px solid pink; */
+}
+
+.dash-right {
+    display: flex;
+    width: 75%;
+    height: fit-content;
+    background-color: #161618;
+    position: relative;
+    top: 0;
+    left: 25%;
+}
+
+.header-left h1 {
+    color: #32B9CD;
+}
+
+.hello {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hello h3 {
+    color: #E3B062;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.hello h3 span {
+    font-weight: 800;
+}
+
+.btn-nav {
+    width: 40%;
+    color: white;
+    background-color: #E6005A;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2% 5%;
+}
+
+.btn-nav-white {
+    width: 40%;
+    background-color: white;
+    border: 3px solid #E6005A;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2% 5%;
+}
+
+.btn-nav-white h3 {
+    color: #E6005A;
+    padding: 0;
+    margin: 0;
+}
+
+
+.btn-nav h3, .btn-logout h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-logout {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #32B9CD;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+/* pagina extra - simulador */
+.simulador {
+    color: white;
+}
