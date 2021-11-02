@@ -43,6 +43,11 @@ button:hover {
     color: white;
 }
 
+.header a:hover {
+    color: #00c1e8b1;
+    transition: 0.3s;
+}
+
 .agora {
     font-weight: 700;
     color: #00c0e8;
@@ -169,8 +174,8 @@ button:hover {
 }
 
 /* usar este bloco para explicar margin e padding*/
-.social .titulo {
-    /* border: 3px solid pink; */
+/* .social .titulo {
+    border: 3px solid pink;
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
@@ -186,12 +191,12 @@ button:hover {
     text-align: center;
     color: #E6005A;
     margin: 0;
-    /* border: 3px solid orange; */
+    border: 3px solid orange;
 }
 
 .social .boxes {
     display: flex;
-    /* border: 3px solid blue; */
+    border: 3px solid blue;
 }
 
 .social .box {
@@ -201,7 +206,7 @@ button:hover {
     flex-direction: column;
     text-align: center;
     width: 33%;
-    /* border: 3px solid yellow; */
+    border: 3px solid yellow;
 }
 
 .social .box img {
@@ -212,20 +217,16 @@ button:hover {
 .social .box h4 {
     color: #E6005A;
     margin-top: 30px;
-}
+} */
 
 /* DASHBOARD */
-.pergunta {
-    height: 500px;
-}
-
-.pergunta .container {
-    height: 100%;
+.dashboard .container{
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: space-between;
+    margin-top: 50px;
 }
+
 .caixa_pergunta {
     width: 400px;
     height: 400px;
@@ -241,6 +242,20 @@ button:hover {
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.24);
     transition: 0.3s;
 }
+
+/* .graficos_container {
+    width: 55%;
+} */
+.graph {
+    /* background-color: #eaeaea; */
+    width: 600px;
+    height: 380px;
+    padding: 10px;
+    background-image: linear-gradient( #4f5065, #00c0e8);
+    color: white;
+    border: 1px solid #4f5065;
+}
+
 
 /* Exercícios */
 
