@@ -173,51 +173,6 @@ button:hover {
     justify-content: center;
 }
 
-/* usar este bloco para explicar margin e padding*/
-/* .social .titulo {
-    border: 3px solid pink;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.social h2 {
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    border-radius: 20px;
-    align-self: center; 
-    justify-self: center;
-    text-align: center;
-    color: #E6005A;
-    margin: 0;
-    border: 3px solid orange;
-}
-
-.social .boxes {
-    display: flex;
-    border: 3px solid blue;
-}
-
-.social .box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 33%;
-    border: 3px solid yellow;
-}
-
-.social .box img {
-    width: 150px;
-    align-self: center;
-}
-
-.social .box h4 {
-    color: #E6005A;
-    margin-top: 30px;
-} */
 
 /* DASHBOARD */
 .dashboard .container{
@@ -243,11 +198,7 @@ button:hover {
     transition: 0.3s;
 }
 
-/* .graficos_container {
-    width: 55%;
-} */
 .graph {
-    /* background-color: #eaeaea; */
     width: 600px;
     height: 380px;
     padding: 10px;
@@ -397,11 +348,13 @@ h4 {
 }
 
 .banner-login {
-    color: #E6005A;
+    /* color: #E6005A; */
 }
 
-.banner-login .card {
-    background-color: #E5E5E5;
+.banner-login .card-cadastro, 
+.card-login, .card_fisioterapeutas {
+    background-image: linear-gradient( #4f5065, #00c0e8);
+    border: 1px solid #4f5065;
     height: 450px;
     width: 400px;
     display: flex;
@@ -410,6 +363,21 @@ h4 {
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.banner-login .card-login {
+    justify-content: flex-start;
+}
+
+.banner-login .card-login h2{
+    margin-top: 50px;
+}
+.banner-login .card-login h4{
+    margin-top: -10px;
+}
+
+.card-login .formulario {
+    margin-top: 60px;
 }
 
 
@@ -424,13 +392,11 @@ h4 {
 
 /* FORMULARIO */
 
-/* input {
+input {
     height: 30px;
-    border: 2px solid #E6005A;
-    border-radius: 10px;
-} */
+}
 
-.btn {
+/* .btn {
     font-family: 'Exo 2', sans-serif;
     border: 0;
     border-radius: 5px;
@@ -441,7 +407,7 @@ h4 {
     background-color: #E6005A;
     width: 120px;
     align-self: center;
-}
+} */
 
 
 
