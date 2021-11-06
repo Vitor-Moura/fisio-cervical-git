@@ -53,7 +53,8 @@
             <div class="explicacao">
                 <p>
                     <b>Exercício 1</b><br>
-                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça o mais
+                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça
+                    o mais
                     posteriormente possível. Mantenha-se nesta
                     posição de estiramento por 1-2 segundos e então relaxe, permitindo que a cabeça retorne à sua
                     posição neutra. <br>
@@ -81,7 +82,8 @@
             <div class="explicacao">
                 <p>
                     <b>Exercício 2</b><br>
-                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça o mais
+                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça
+                    o mais
                     posteriormente possível. Mantenha-se nesta
                     posição de estiramento por 1-2 segundos e então relaxe, permitindo que a cabeça retorne à sua
                     posição neutra. <br>
@@ -110,7 +112,8 @@
             <div class="explicacao">
                 <p>
                     <b>Exercício 3</b><br>
-                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça o mais
+                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça
+                    o mais
                     posteriormente possível. Mantenha-se nesta
                     posição de estiramento por 1-2 segundos e então relaxe, permitindo que a cabeça retorne à sua
                     posição neutra. <br>
@@ -139,7 +142,8 @@
             <div class="explicacao">
                 <p>
                     <b>Exercício 4</b><br>
-                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça o mais
+                    Com a face rígida, coloque seus dedos na parte anterior do queixo para ajudar a empurrar sua cabeça
+                    o mais
                     posteriormente possível. Mantenha-se nesta
                     posição de estiramento por 1-2 segundos e então relaxe, permitindo que a cabeça retorne à sua
                     posição neutra. <br>
@@ -160,6 +164,11 @@
                 </div>
             </div>
 
+        </div>
+        <div class="finalizar">
+            <div class="container">
+                <button onclick="window.location.href = './dashboard.html'">Finalizar</button>
+            </div>
         </div>
     </div>
 
@@ -183,15 +192,15 @@
     var index1 = 0;
     function iniciar1() {
         index1 = Number(ipt_duracao1.value);
-        if (index1 <=0 ) {
-            alert ('Digite um número que represente a duração do cronômetro');
+        if (index1 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
         }
         else {
-        mostrar_contagem1 = setInterval('mostrar1()', 1000);
-        id_iniciar1.style.display = "none";
-        id_parar1.style.display = "block";
+            mostrar_contagem1 = setInterval('mostrar1()', 1000);
+            id_iniciar1.style.display = "none";
+            id_parar1.style.display = "block";
+        }
     }
-}
 
     function mostrar1() {
         document.getElementById("contagem_regressiva1").innerHTML = index1;
@@ -225,15 +234,15 @@
     var index2 = 0;
     function iniciar2() {
         index2 = Number(ipt_duracao2.value);
-        if (index2 <=0 ) {
-            alert ('Digite um número que represente a duração do cronômetro');
+        if (index2 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
         }
         else {
-        mostrar_contagem2 = setInterval('mostrar2()', 1000);
-        id_iniciar2.style.display = "none";
-        id_parar2.style.display = "block";
+            mostrar_contagem2 = setInterval('mostrar2()', 1000);
+            id_iniciar2.style.display = "none";
+            id_parar2.style.display = "block";
+        }
     }
-}
 
     function mostrar2() {
         document.getElementById("contagem_regressiva2").innerHTML = index2;
@@ -267,15 +276,15 @@
     var index3 = 0;
     function iniciar3() {
         index3 = Number(ipt_duracao3.value);
-        if (index3 <=0 ) {
-            alert ('Digite um número que represente a duração do cronômetro');
+        if (index3 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
         }
         else {
-        mostrar_contagem3 = setInterval('mostrar3()', 1000);
-        id_iniciar3.style.display = "none";
-        id_parar3.style.display = "block";
+            mostrar_contagem3 = setInterval('mostrar3()', 1000);
+            id_iniciar3.style.display = "none";
+            id_parar3.style.display = "block";
+        }
     }
-}
 
     function mostrar3() {
         document.getElementById("contagem_regressiva3").innerHTML = index3;
@@ -309,15 +318,15 @@
     var index4 = 0;
     function iniciar4() {
         index4 = Number(ipt_duracao4.value);
-        if (index4 <=0 ) {
-            alert ('Digite um número que represente a duração do cronômetro');
+        if (index4 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
         }
         else {
-        mostrar_contagem4 = setInterval('mostrar4()', 1000);
-        id_iniciar4.style.display = "none";
-        id_parar4.style.display = "block";
+            mostrar_contagem4 = setInterval('mostrar4()', 1000);
+            id_iniciar4.style.display = "none";
+            id_parar4.style.display = "block";
+        }
     }
-}
 
     function mostrar4() {
         document.getElementById("contagem_regressiva4").innerHTML = index4;

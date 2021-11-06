@@ -223,6 +223,15 @@ button:hover {
     border: 1px solid #4f506535;
 }
 
+.finalizar .container {
+    width: 80%;
+    display: flex;
+    padding: 10px 0 10px 20px;
+    margin: 20px auto;
+    justify-content: flex-end;
+    border: none
+}
+
 .exercicios .container img {
     width: 400px;
     height: 225px;
