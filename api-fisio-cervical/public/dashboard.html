@@ -45,22 +45,41 @@
 
     <div class="dashboard">
         <div class="container">
-            <div class="caixa_pergunta">
-                <h2>Olá, seja bem-vindo/a!</h2>
-                <h3>Qual o seu nivel de dor hoje?</h3>
-                <select id="lista_nivel_dor" onchange="nivel_dor()">
-                    <option value="0">-- Escolha uma opção --</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
+            <div class="perguntas">
+                <div class="caixa_pergunta">
+                    <h3>Qual o seu nivel de dor hoje?</h3>
+                    <select id="lista_nivel_dor1" onchange="nivel_dor1()">
+                        <option value="0">-- Escolha uma opção --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="caixa_pergunta">
+                    <h3>Qual o seu nivel de dor depois do treino?</h3>
+                    <select id="lista_nivel_dor2" onchange="nivel_dor2()">
+                        <option value="0">-- Escolha uma opção --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+
             </div>
 
             <!-- Gráficos -->
@@ -100,32 +119,57 @@
 </html>
 
 <script>
-    var ax_nivel_dor = 0;
-    var ax_sessoes = 0;
-    var ax_lista_dor = [];
-    var ax_lista_sessoes = [];
+    var ax_nivel_dor1 = 0;
+    var ax_nivel_dor2 = 0;
+    var ax_sessoes1 = 0;
+    var ax_sessoes2 = 0;
+    var ax_lista_dor1 = [];
+    var ax_lista_dor2 = [];
+    var ax_lista_sessoes1 = [];
+    var ax_lista_sessoes2 = [];
 
-    function nivel_dor() {
-        ax_nivel_dor = lista_nivel_dor.value;
-        ax_sessoes++;
+    function nivel_dor1() {
+        ax_nivel_dor1 = lista_nivel_dor1.value;
+        ax_sessoes1++;
         // adicionando os valores do select na lista
-        var add_lista_dor = ax_lista_dor.push(Number(ax_nivel_dor));
-        var add_lista_sessoes = ax_lista_sessoes.push(ax_sessoes);
+        var add_lista_dor = ax_lista_dor1.push(Number(ax_nivel_dor1));
+        var add_lista_sessoes = ax_lista_sessoes1.push(ax_sessoes1);
         // inserindo o valor da losta no grafico e atualizando o grafico
         myChart.update();
 
-        if (ax_nivel_dor <= 5) {
-            // window.location.href = './exercicios-a.html';
-            window.open("./exercicios-a.html");
-        }
-        else {
-            // window.location.href = './exercicios-b.html';
-            window.open("./exercicios-b.html");
-        }
-        lista_nivel_dor.value = "0";
+        // if (ax_nivel_dor1 <= 5) {
+        //     // window.location.href = './exercicios-a.html';
+        //     window.open("./exercicios-a.html");
+        // }
+        // else {
+        //     // window.location.href = './exercicios-b.html';
+        //     window.open("./exercicios-b.html");
+        // }
+        lista_nivel_dor1.value = "0";
+    }
+
+    function nivel_dor2() {
+        ax_nivel_dor2 = lista_nivel_dor2.value;
+        ax_sessoes2++;
+        // adicionando os valores do select na lista
+        var add_lista_dor2 = ax_lista_dor2.push(Number(ax_nivel_dor2));
+        var add_lista_sessoes2 = ax_lista_sessoes2.push(ax_sessoes2);
+        // inserindo o valor da losta no grafico e atualizando o grafico
+        myChart.update();
+
+        // if (ax_nivel_dor2 <= 5) {
+        //     // window.location.href = './exercicios-a.html';
+        //     window.open("./exercicios-a.html");
+        // }
+        // else {
+        //     // window.location.href = './exercicios-b.html';
+        //     window.open("./exercicios-b.html");
+        // }
+        lista_nivel_dor2.value = "0";
     }
 
 
+    // TESTANDO NOVO GRAFICO
 
 
     //Gráfico de Linha
@@ -136,8 +180,38 @@
         data: {
             labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             datasets: [{
-                label: '10 útimas sessões',
-                data: ax_lista_dor,
+                label: 'Antes dos exercícios',
+                data: ax_lista_dor1,
+                backgroundColor: [
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089'
+                ],
+
+                borderColor: [
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089',
+                    '#ff000089'
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Depois dos exercícios',
+                data: ax_lista_dor2,
                 backgroundColor: [
                     '#00c0e8',
                     '#00c0e8',
@@ -163,8 +237,10 @@
                     '#00c0e8',
                     '#00c0e8'
                 ],
-                borderWidth: 1
-            }]
+                borderWidth: 2.5
+            }
+
+            ]
         },
         // gráfico Y começando do zero e termiando no 10 
         options: {
@@ -182,7 +258,7 @@
                     ticks: {
                         color: "white",
                     },
-                    grid : {
+                    grid: {
                         color: "#ffffff4a",
                     }
                 },
@@ -190,7 +266,7 @@
                     ticks: {
                         color: "white",
                     },
-                    grid : {
+                    grid: {
                         color: "#ffffff4a",
                     }
                 }
