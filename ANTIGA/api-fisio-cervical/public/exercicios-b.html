@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fisio Cervical | Exercícios B</title>
+
+    <script src="./assets/js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/favicon-fisio-cervical.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="./index.html"><img src="./assets/logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical"
+                    style="height: 50px;"></a>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#como_exercitar">Como Exercitar</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./dashboard.html">Dashboard</a>
+                </li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h1 class="exercicios_titulo">Série de Exercícios de Nível Intenso</h1>
+
+    <div id="div_ex_a" class="exercicios">
+        <!-- Excercício 1 -->
+        <div class="container">
+            <video width="320" controls>
+                <source src="./assets/movies/b-ex-1-saquinho-na-dorsal.mp4" type="video/mp4">
+            </video>
+            <div class="explicacao">
+                <p>
+                    <b>Exercício 1 - Saquinho na dorsal</b><br>
+                    Deitar de barriga para cima, sobre um saquinho entre as asinhas - as escápulas. Joelhos dobrados, braços ao longo do corpo. A) respirar profundamente algumas vezes, abaixando bem o peito na expiração. B) elevar os braços para o teto. Na expiração abrir lentamente os braços em cruz, até o chão. Repetir 5 vezes. Com cuidado, tirar o saquinho e observar o corpo. <br>
+                    <br>
+                </p>
+                <div class="div_duracao">
+                    <input type="number" placeholder="Duração do Cronômetro" id="ipt_duracao1" class="ipt_duracao">
+                    <p class="interrogacao">?</p>
+                    <span class="informacoes">Digite apenas números! Este número representará a quantidade em segundos
+                        da duração do cronômetro</span>
+                </div>
+                <div class="cronometro">
+                    <button id="id_iniciar1" onclick="iniciar1()">Iniciar Cronômetro</button>
+                    <button id="id_parar1" class="botao_parar" onclick="parar1()" style="display: none;">Parar
+                        Cronômetro</button>
+
+                    <span id="contagem_regressiva1"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- Excercício 2 -->
+        <div class="container">
+            <video width="320" controls>
+                <source src="./assets/movies/b-ex-2-rolar-da-cabeca-dv.mp4" type="video/mp4">
+            </video>
+            <div class="explicacao">
+                <p>
+                    <b>Exercício 2 - Rolar da cabeça</b><br>
+                    Deitado de barriga para baixo, pernas esticadas. Posicionar uma mão sobre a outra e a testa sobre as mãos. Na inspiração, elevar o cotovelo da mão de baixo. Deixar a cabeça girar e olhar para o cotovelo que sobe. Voltar, relaxar e repetir 5 vezes. Trocar a posição das mãos e fazer do outro lado. Esticar os braços e descansar com a testa no chão. <br>
+                    <br>
+                </p>
+                <div class="div_duracao">
+                    <input type="number" placeholder="Duração do Cronômetro" id="ipt_duracao2" class="ipt_duracao">
+                    <p class="interrogacao">?</p>
+                    <span class="informacoes">Digite apenas números! Este número representará a quantidade em segundos
+                        da duração do cronômetro</span>
+                </div>
+                <div class="cronometro">
+                    <button id="id_iniciar2" onclick="iniciar2()">Iniciar Cronômetro</button>
+                    <button id="id_parar2" class="botao_parar" onclick="parar2()" style="display: none;">Parar
+                        Cronômetro</button>
+
+                    <span id="contagem_regressiva2"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Excercício 3 -->
+        <div class="container">
+            <video width="320" controls>
+                <source src="./assets/movies/b-ex-3-permeabilizacao-das-narinas.mp4" type="video/mp4">
+            </video>
+            <div class="explicacao">
+                <p>
+                    <b>Exercício 3 - Permeabilização das narinas</b><br>
+                    Deitado de barriga para cima, pernas dobradas, pés paralelos. Cabeça sobre um tijolinho de madeira. Testar o giro da cabeça para a direita e para a esquerda. A) girar a cabeça para um dos lados, tapar a narina de baixo com a ponta do dedo do mesmo lado. Deixar o braço do lado oposto ao longo do corpo, um pouco isto, com a palma para baixo. Respirar apenas pela narina de cima. Abrir a boca, se necessário, o mínimo possível. Repetir algumas vezes. B) a cada expiração crescer o braço esticado, caminhando com a pontinha dos dedos para frente, com o objetivo de posicionar o ombro para trás e para baixo, afastando da orelha. Repetir algumas vezes. Descansar, observar o corpo e a respiração. Fazer do outro lado. <br>
+                    <br>
+                </p>
+                <div class="div_duracao">
+                    <input type="number" placeholder="Duração do Cronômetro" id="ipt_duracao3" class="ipt_duracao">
+                    <p class="interrogacao">?</p>
+                    <span class="informacoes">Digite apenas números! Este número representará a quantidade em segundos
+                        da duração do cronômetro</span>
+                </div>
+                <div class="cronometro">
+                    <button id="id_iniciar3" onclick="iniciar3()">Iniciar Cronômetro</button>
+                    <button id="id_parar3" class="botao_parar" onclick="parar3()" style="display: none;">Parar
+                        Cronômetro</button>
+
+                    <span id="contagem_regressiva3"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Excercício 4 -->
+        <div class="container">
+            <video width="320" controls>
+                <source src="./assets/movies/b-ex-4-sonifero.mp4" type="video/mp4">
+            </video>
+            <div class="explicacao">
+                <p>
+                    <b>Exercício 4 - Sonífero</b><br>
+                    Deitado de barriga para cima, joelhos dobrados. Pode utilizar uma bola de macia sob a cabeça e relaxar sobre ela. Realizar movimentos com a cabeça, como se fizesse um pequeno "sim". Fazer 10 vezes. Realizar um movimento dizendo um pequeno "não". Repetir 10 vezes. E, por fim, fazer um movimento de círculo, bem pequeno. Repetir 10 vezes cada sentido. Parar no centro, retirar a bola e observar o corpo. <br>
+                    <br>
+                </p>
+                <div class="div_duracao">
+                    <input type="number" placeholder="Duração do Cronômetro" id="ipt_duracao4" class="ipt_duracao">
+                    <p class="interrogacao">?</p>
+                    <span class="informacoes">Digite apenas números! Este número representará a quantidade em segundos
+                        da duração do cronômetro</span>
+                </div>
+                <div class="cronometro">
+                    <button id="id_iniciar4" onclick="iniciar4()">Iniciar Cronômetro</button>
+                    <button id="id_parar4" class="botao_parar" onclick="parar4()" style="display: none;">Parar
+                        Cronômetro</button>
+
+                    <span id="contagem_regressiva4"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="finalizar">
+            <div class="container">
+                <button onclick="window.location.href = './dashboard.html'">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>Created by Vitor Moura &copy; 2021</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const bell = new Audio('./assets/sounds/bell.mp3');
+    const tic = new Audio('./assets/sounds/tic.mp3');
+    const tac = new Audio('./assets/sounds/tac.mp3');
+
+    // Exercício 1
+    var index1 = 0;
+    function iniciar1() {
+        index1 = Number(ipt_duracao1.value);
+        if (index1 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
+        }
+        else {
+            mostrar_contagem1 = setInterval('mostrar1()', 1000);
+            id_iniciar1.style.display = "none";
+            id_parar1.style.display = "block";
+        }
+    }
+
+    function mostrar1() {
+        document.getElementById("contagem_regressiva1").innerHTML = index1;
+        index1 -= 1;
+        if (index1 % 2 == 0) {
+            tac.play();
+        }
+        else {
+            tic.play();
+        }
+
+        if (index1 <= -1) {
+            clearInterval(mostrar_contagem1);
+            document.getElementById("contagem_regressiva1").innerHTML = '<span style="font-size: 25px;">Exercício Concluído</span>'
+            bell.play();
+            id_iniciar1.style.display = "block";
+            id_parar1.style.display = "none";
+            index1 = Number(ipt_duracao1.value);
+        }
+    }
+
+    function parar1() {
+        clearInterval(mostrar_contagem1);
+        document.getElementById("contagem_regressiva1").innerHTML = '<span style="color: red; font-size: 25px;">Contagem Interrompida!</span>'
+        id_iniciar1.style.display = "block";
+        id_parar1.style.display = "none";
+        index1 = Number(ipt_duracao1.value);
+    }
+
+    // Exercício 2
+    var index2 = 0;
+    function iniciar2() {
+        index2 = Number(ipt_duracao2.value);
+        if (index2 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
+        }
+        else {
+            mostrar_contagem2 = setInterval('mostrar2()', 1000);
+            id_iniciar2.style.display = "none";
+            id_parar2.style.display = "block";
+        }
+    }
+
+    function mostrar2() {
+        document.getElementById("contagem_regressiva2").innerHTML = index2;
+        index2 -= 1;
+        if (index2 % 2 == 0) {
+            tac.play();
+        }
+        else {
+            tic.play();
+        }
+
+        if (index2 <= -1) {
+            clearInterval(mostrar_contagem2);
+            document.getElementById("contagem_regressiva2").innerHTML = '<span style="font-size: 25px;">Exercício Concluído</span>'
+            bell.play();
+            id_iniciar2.style.display = "block";
+            id_parar2.style.display = "none";
+            index2 = Number(ipt_duracao2.value);
+        }
+    }
+
+    function parar2() {
+        clearInterval(mostrar_contagem2);
+        document.getElementById("contagem_regressiva2").innerHTML = '<span style="color: red; font-size: 25px;">Contagem Interrompida!</span>'
+        id_iniciar2.style.display = "block";
+        id_parar2.style.display = "none";
+        index2 = Number(ipt_duracao2.value);
+    }
+
+    // Exercício 3
+    var index3 = 0;
+    function iniciar3() {
+        index3 = Number(ipt_duracao3.value);
+        if (index3 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
+        }
+        else {
+            mostrar_contagem3 = setInterval('mostrar3()', 1000);
+            id_iniciar3.style.display = "none";
+            id_parar3.style.display = "block";
+        }
+    }
+
+    function mostrar3() {
+        document.getElementById("contagem_regressiva3").innerHTML = index3;
+        index3 -= 1;
+        if (index3 % 2 == 0) {
+            tac.play();
+        }
+        else {
+            tic.play();
+        }
+
+        if (index3 <= -1) {
+            clearInterval(mostrar_contagem3);
+            document.getElementById("contagem_regressiva3").innerHTML = '<span style="font-size: 25px;">Exercício Concluído</span>'
+            bell.play();
+            id_iniciar3.style.display = "block";
+            id_parar3.style.display = "none";
+            index3 = Number(ipt_duracao3.value);
+        }
+    }
+
+    function parar3() {
+        clearInterval(mostrar_contagem3);
+        document.getElementById("contagem_regressiva3").innerHTML = '<span style="color: red; font-size: 25px;">Contagem Interrompida!</span>'
+        id_iniciar3.style.display = "block";
+        id_parar3.style.display = "none";
+        index3 = Number(ipt_duracao3.value);
+    }
+
+    // Exercício 4
+    var index4 = 0;
+    function iniciar4() {
+        index4 = Number(ipt_duracao4.value);
+        if (index4 <= 0) {
+            alert('Digite um número que represente a duração do cronômetro');
+        }
+        else {
+            mostrar_contagem4 = setInterval('mostrar4()', 1000);
+            id_iniciar4.style.display = "none";
+            id_parar4.style.display = "block";
+        }
+    }
+
+    function mostrar4() {
+        document.getElementById("contagem_regressiva4").innerHTML = index4;
+        index4 -= 1;
+        if (index4 % 2 == 0) {
+            tac.play();
+        }
+        else {
+            tic.play();
+        }
+
+        if (index4 <= -1) {
+            clearInterval(mostrar_contagem4);
+            document.getElementById("contagem_regressiva4").innerHTML = '<span style="font-size: 25px;">Exercício Concluído</span>'
+            bell.play();
+            id_iniciar4.style.display = "block";
+            id_parar4.style.display = "none";
+            index4 = Number(ipt_duracao4.value);
+        }
+    }
+
+    function parar4() {
+        clearInterval(mostrar_contagem4);
+        document.getElementById("contagem_regressiva4").innerHTML = '<span style="color: red; font-size: 25px;">Contagem Interrompida!</span>'
+        id_iniciar4.style.display = "block";
+        id_parar4.style.display = "none";
+        index4 = Number(ipt_duracao4.value);
+    }
+
+</script>
