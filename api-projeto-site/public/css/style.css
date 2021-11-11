@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Avenir';
-    /* background-color: #4f50650d */
 }
 
 .container {
@@ -11,8 +10,6 @@ body {
 }
 
 button {
-    /* width: 150px; */
-    /* height: 35px; */
     padding: 5px 8px;
     background-color: rgb(79, 80, 101);
     color: white;
@@ -138,19 +135,7 @@ button:hover {
     display: flex;
 }
 
-/* missao visao valores */
 
-.social {
-    background-color: #E5E5E5;
-    /* border: 3px solid yellowgreen; */
-    padding: 50px 0;
-}
-
-.social .container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
 
 /* Como praticar */
 .como_exercitar {

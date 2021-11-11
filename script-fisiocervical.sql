@@ -24,6 +24,22 @@ CREATE TABLE usuario (
 	-- fkExercicios INT,
 	-- FOREIGN KEY (fkFisioterapeuta) REFERENCES fisioterapeuta(idFisioterapeuta),
 	-- FOREIGN KEY (fkExercicios) REFERENCES exercicios(idExercicios));
+    
+CREATE TABLE aviso (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100),
+    descricao VARCHAR(150),
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+); 
+
+CREATE TABLE medida (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	temperatura DECIMAL(10,2),
+	umidade DECIMAL(10,2),
+	momento DATETIME,
+	fk_aquario INT
+);
 
 
 
