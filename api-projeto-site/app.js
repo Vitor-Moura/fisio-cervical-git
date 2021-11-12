@@ -11,6 +11,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var fisioterapeutaRouter = require("./src/routes/fisioterapeutas");
+var pretreinoRouter = require("./src/routes/pretreinos");
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/fisioterapeutas", fisioterapeutaRouter);
+app.use("/pretreinos", pretreinoRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter)
 

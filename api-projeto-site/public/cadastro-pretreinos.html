@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fisio Cervical | Cadastro Pré Treinos</title>
+
+    
+    <script src="./assets/js/funcoes.js"></script>
+    
+    
+    <link rel="icon" href="./assets/icon/favicon-fisio-cervical.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+        <div class="container">
+            <a href="./index.html"><img src="./assets/imgs/logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical" style="height: 50px;"></a>  
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="./index.html#como_exercitar">Como Exercitar</a>  
+                </li>
+                <li>|</li>
+                <li >
+                    <a href="./login.html">Login</a>
+                </li>
+                <li class="agora">Cadastro</li>
+            </ul>
+        </div>
+    </div>
+    <!--header fim-->
+
+    <div class="banner-login ">
+        <div class="container ">
+            <div class="card-fisioterapeutas">
+                <h2>Preencha antes <br> de inciar os exercícios!</h2>
+                <div class="formulario">
+                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        Qual seu nível de dor?
+                        <input name="nivelDor1" type="text" placeholder="Ex: 7">
+                        <br>
+                        Descrição.
+                        <input name="descDor1" type="text" placeholder="Ex: Dor do lado esquerdo do pescoço e braço esquerdo furmigando">
+                        <br>
+                        <button>Iniciar</button>
+                    </form>
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="container">
+            <h4>Created by Vitor Moura &copy; 2021</h4>
+        </div>
+    </div>
+    <!--footer fim-->
+    
+
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nivelDor1 = formulario.get("nivelDor1");
+        var descDor1 = formulario.get("descDor1");
+
+
+        if (nivelDor1 == "" || descDor1 == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nivelDor1 == "")  {
+                console.log('nivelDor1 está em branco')
+            }
+            if (descDor1 == "" )  {
+                console.log('descDor1 está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+
+        
+
+
+        fetch("/pretreinos/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Obrigado, inicie agora a práticas dos exercícios");
+                if (nivelDor1 <= 5) {
+                window.location = "exercicios-a.html";
+                }
+                else if (nivelDor1 > 5) {
+                window.location = "exercicios-b.html";
+                }
+                limparFormulario();
+                finalizarAguardar();
+            } 
+            else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

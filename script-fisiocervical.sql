@@ -9,6 +9,16 @@ CREATE TABLE fisioterapeuta (
 	senha VARCHAR(50)
 );
 
+CREATE TABLE pretreino (
+	idFisioterapeuta INT PRIMARY KEY AUTO_INCREMENT,
+	nivelDor1 int,
+	descDor1 VARCHAR(1000),
+    dtRegistro timestamp null default current_timestamp
+);
+
+select * from pretreino;
+drop table pretreino;
+
 CREATE TABLE exercicios (
 	idExercicios INT PRIMARY KEY AUTO_INCREMENT,
 	preTreino INT,
@@ -43,6 +53,7 @@ CREATE TABLE medida (
 
 
 
+select * from pretreino;
 select * from usuario;
 
 select * from fisioterapeuta;
@@ -56,3 +67,4 @@ delete from fisioterapeuta where idFisioterapeuta in (1,2);
 
 drop table fisioterapeuta;
 drop table usuario;
+drop table pretreino;
