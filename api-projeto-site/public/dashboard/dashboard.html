@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AcquaTec | Página Inicial</title>
+    <title>Fisio Cervical | Dashboard</title>
 
     <script src="../assets/js/funcoes.js"></script>
 
@@ -23,11 +23,11 @@
 
 </head>
 
-<body onload="validarSessao(),  obterDadosGrafico(1)">
+<body onload="validarSessao()">
     <div class="header">
         <div class="container">
-            <a href="./index.html"><img src="api-projeto-site\public\assets\imgs\logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical"
-                    style="height: 50px;"></a>
+            <a href="./index.html"><img src="..\assets\imgs\logo-fisio-cervical-white.png"
+                    alt="logotipo-fisio-cervical" style="height: 50px;"></a>
             <ul class="navbar">
                 <li>
                     <a href="./index.html">Home</a>
@@ -49,47 +49,32 @@
 
     <div class="dashboard">
         <div class="container">
-            <h2>Olá, <span id="b_usuario"></span>!</h2>
-            <div class="perguntas">
+            <h2>Olá <span id="b_usuario"></span>, seja bem-vindo/a!</h2>
                 <div class="caixa_pergunta">
-                    <h3>Qual o seu nivel de dor hoje?</h3>
-                    <select id="lista_nivel_dor1" onchange="nivel_dor1()">
-                        <option value="0">-- Escolha uma opção --</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+                    <h2>Preencha o formulário antes de iniciar os exercícios!</h2>
+                    <div class="formulario">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            Qual seu nível de dor?
+                            <input name="nivelDor1" type="text" placeholder="Ex: 7">
+                            <br>
+                            Descrição.
+                            <input name="descDor1" type="text"
+                                placeholder="Ex: Dor do lado esquerdo do pescoço e braço esquerdo furmigando">
+                            <br>
+                            <button>Iniciar</button>
+                        </form>
+                    </div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="../assets/circle-loading.gif" id="loading-gif">
+                    </div>
+                    <div id="div_erros_login">
+                    </div>
                 </div>
-                <div class="caixa_pergunta">
-                    <h3>Qual o seu nivel de dor depois do treino?</h3>
-                    <select id="lista_nivel_dor2" onchange="nivel_dor2()">
-                        <option value="0">-- Escolha uma opção --</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-
-
-            </div>
+         
 
             <!-- Gráficos -->
             <div class="graficos_container">
-
+                <h2>Acompanhe a evolução do seu nível de dor no gráfico abaixo</h2>
                 <!-- Gráfico de Linhas -->
                 <div class="graph">
                     <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
@@ -106,13 +91,13 @@
         </div> -->
             </div>
 
+            <div id="descricao_container" class="descricao_container">
+                <h2>Acompanhe aqui seu histórico de descrições</h2>
+                <div id="descricao" class="descricao"></div>
+            </div>
         </div>
-
     </div>
-
-
     </div>
-
 
     <div class="footer">
         <div class="container">
@@ -120,104 +105,87 @@
         </div>
     </div>
 </body>
-    <!-- <div class="janela">
-        <div class="header-left">
-            <h1>AcquaTec</h1> -->
-
-            <!-- Manter -->
-            <!-- <div class="hello">
-                <h3>Olá, <span id="b_usuario"></span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div> -->
-
-            <!-- Manter -->
-            <!-- <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div class="btns-dash"> -->
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <!-- <button class="btn-chart" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(4)">Aquario 4</button>
-            </div>
-            <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-            </div>
-        </div>
-    </div> -->
-
-
-<!-- </body> -->
 
 </html>
 
 <script>
-    var ax_nivel_dor1 = 0;
-    var ax_nivel_dor2 = 0;
-    var ax_lista_dor1 = [];
-    var ax_lista_dor2 = [];
-
-
-    function nivel_dor1() {
-        ax_nivel_dor1 = lista_nivel_dor1.value;
-        // adicionando os valores do select na lista
-        var add_lista_dor = ax_lista_dor1.push(Number(ax_nivel_dor1));
-        // inserindo o valor da lista no grafico e atualizando o grafico
-        myChart.update();
-
-        // if (ax_nivel_dor1 <= 5) {
-        //     // window.location.href = './exercicios-a.html';
-        //     window.open("./exercicios-a.html");
-        // }
-        // else {
-        //     // window.location.href = './exercicios-b.html';
-        //     window.open("./exercicios-b.html");
-        // }
-        lista_nivel_dor1.value = "0";
+    // FORMULÁRIO PRÉ TREINO
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
     }
 
-    function nivel_dor2() {
-        ax_nivel_dor2 = lista_nivel_dor2.value;
-        // adicionando os valores do select na lista
-        var add_lista_dor2 = ax_lista_dor2.push(Number(ax_nivel_dor2));
-        // inserindo o valor da losta no grafico e atualizando o grafico
-        myChart.update();
+    function cadastrar() {
+        aguardar();
 
-        // if (ax_nivel_dor2 <= 5) {
-        //     // window.location.href = './exercicios-a.html';
-        //     window.open("./exercicios-a.html");
-        // }
-        // else {
-        //     // window.location.href = './exercicios-b.html';
-        //     window.open("./exercicios-b.html");
-        // }
-        lista_nivel_dor2.value = "0";
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nivelDor1 = formulario.get("nivelDor1");
+        var descDor1 = formulario.get("descDor1");
+
+
+        if (nivelDor1 == "" || descDor1 == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nivelDor1 == "") {
+                console.log('nivelDor1 está em branco')
+            }
+            if (descDor1 == "") {
+                console.log('descDor1 está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+
+        // ENVIANDO DADOS DO FORMULÁRIO
+        fetch("/pretreinos/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Obrigado, inicie agora a práticas dos exercícios");
+                if (nivelDor1 <= 5) {
+                    window.location = "../exercicios-b.html";
+                }
+                else if (nivelDor1 > 5) {
+                    window.location = "../exercicios-a.html";
+                }
+                limparFormulario();
+                finalizarAguardar();
+            }
+            else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
     }
 
+    var vt_nivelDor1 = [];
 
-    // TESTANDO NOVO GRAFICO
+    // TRAZENDO OS DADOS DO BANCO DE DADOS
+    fetch('/pretreinos/listar', { method: 'get' }).then(function (resultado) {
+        console.log("resultado: " + resultado);
+        resultado.json().then(function (resultadoFormatado) {
+            console.log("RESULTADO FORMATADO:", resultadoFormatado);
+            for (var i = 0; i < resultadoFormatado.length; i++) {
+                var descricao1 = resultadoFormatado[i].descDor1;
+                var dataHora1 = resultadoFormatado[i].data1;
+                descricao.innerHTML += `${dataHora1} <br> ${descricao1}<br><br>`;
+
+                var dor1 = resultadoFormatado[i].nivelDor1;
+                vt_nivelDor1.push(dor1);
+                // ATUALIZANDO GRÁFICO
+                myChart.update();
+            }
+        })
+    }).catch(function (erro) {
+    });
 
 
     //Gráfico de Linha
@@ -229,7 +197,7 @@
             labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             datasets: [{
                 label: 'Antes dos exercícios',
-                data: ax_lista_dor1,
+                data: vt_nivelDor1,
                 backgroundColor: [
                     '#ff000089',
                     '#ff000089',
@@ -259,7 +227,7 @@
             },
             {
                 label: 'Depois dos exercícios',
-                data: ax_lista_dor2,
+                data: vt_nivelDor1,
                 backgroundColor: [
                     '#00c0e8',
                     '#00c0e8',

@@ -13,11 +13,13 @@ CREATE TABLE pretreino (
 	idFisioterapeuta INT PRIMARY KEY AUTO_INCREMENT,
 	nivelDor1 int,
 	descDor1 VARCHAR(1000),
-    dtRegistro timestamp null default current_timestamp
+    dtRegistro1 timestamp null default current_timestamp
 );
 
+select * from usuario;
 select * from pretreino;
 drop table pretreino;
+truncate table pretreino;
 
 CREATE TABLE exercicios (
 	idExercicios INT PRIMARY KEY AUTO_INCREMENT,
