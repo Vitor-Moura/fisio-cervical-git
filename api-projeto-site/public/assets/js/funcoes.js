@@ -12,6 +12,20 @@ function validarSessao() {
         window.location = "../login.html";
     }
 }
+
+function validarSessaoFisioterapeutas() {
+    // aguardar();
+
+    var email = sessionStorage.EMAIL_FISIOTERAPEUTA;
+    var nome = sessionStorage.NOME_FISIOTERAPEUTA;
+    
+    if (email != null && nome != null) {
+        b_fisioterapeuta.innerHTML = nome;       
+        // finalizarAguardar();
+    } else {
+        window.location = "../login-fisioterapeutas.html";
+    }
+}
    
 function limparSessao() {
     // aguardar();

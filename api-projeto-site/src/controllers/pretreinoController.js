@@ -28,12 +28,16 @@ function cadastrar(req, res) {
     var nivelDor1 = req.body.nivelDor1;
     var descDor1 = req.body.descDor1;
 
+    var idUsuario = req.params.idUsuario;
+
     if (nivelDor1 == undefined) {
         res.status(400).send("Seu nivelDor1 está undefined!");
     } else if (descDor1 == undefined) {
         res.status(400).send("Seu descDor1 está undefined!");
+    } else if ( idUsuario == undefined) {
+        res.status(403).send("Seu usuário está undefined!");
     } else {
-        pretreinoModel.cadastrar(nivelDor1, descDor1)
+        pretreinoModel.cadastrar(nivelDor1, descDor1, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);

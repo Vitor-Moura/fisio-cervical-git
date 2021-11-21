@@ -117,6 +117,8 @@
     function cadastrar() {
         aguardar();
 
+        var idUsuario = sessionStorage.ID_USUARIO;
+
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
         var nivelDor1 = formulario.get("nivelDor1");
@@ -137,7 +139,7 @@
         }
 
         // ENVIANDO DADOS DO FORMULÁRIO
-        fetch("/pretreinos/cadastrar", {
+        fetch(`/pretreinos/cadastrar/${idUsuario}`, {
             method: "POST",
             body: formulario
         }).then(function (resposta) {

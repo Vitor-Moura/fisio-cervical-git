@@ -63,6 +63,9 @@
                         Confirmação da Senha:
                         <input name="confirmacao-senha" type="password" placeholder="******">
                         <br>
+                        Código do fisioterapeuta responsável:
+                        <input name="cod_fisio" type="text" placeholder="102">
+                        <br>
                         <button class="btn">Cadastrar</button>
                     </form>
                 </div>
@@ -105,9 +108,10 @@
         var email = formulario.get("email");
         var senha = formulario.get("senha");
         var confirmacaoSenha = formulario.get("confirmacao-senha");
+        var cod_fisio = formulario.get("cod_fisio");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || cod_fisio == "") {
             
             window.alert("Preencha todos os campos para prosseguir!");
             if (nome == "")  {
@@ -121,6 +125,9 @@
             }
             if (confirmacaoSenha == "" )  {
                 console.log('confirmacaoSenha está em branco')
+            }
+            if (cod_fisio == "" )  {
+                console.log('cod_fisio está em branco')
             }
             finalizarAguardar();
             return false;
