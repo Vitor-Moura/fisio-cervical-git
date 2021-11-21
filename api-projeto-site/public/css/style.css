@@ -325,7 +325,8 @@ h4 {
 
 .banner-login .card-cadastro {
     height: 500px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    margin-bottom: 50px;
 }
 
 

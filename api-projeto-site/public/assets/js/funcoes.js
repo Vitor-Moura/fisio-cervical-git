@@ -34,6 +34,13 @@ function limparSessao() {
     window.location = "../login.html";
 }
 
+function limparSessaoFisioterapeutas() {
+    // aguardar();
+    sessionStorage.clear();
+   // finalizarAguardar();
+    window.location = "../login-fisioterapeutas.html";
+}
+
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");

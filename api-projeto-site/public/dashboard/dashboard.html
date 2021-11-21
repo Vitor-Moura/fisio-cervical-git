@@ -26,30 +26,16 @@
 <body onload="validarSessao()">
     <div class="header">
         <div class="container">
-            <a href="./index.html"><img src="..\assets\imgs\logo-fisio-cervical-white.png"
-                    alt="logotipo-fisio-cervical" style="height: 50px;"></a>
-            <ul class="navbar">
-                <li>
-                    <a href="./index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#como_exercitar">Como Exercitar</a>
-                </li>
-                <li>|</li>
-                <li class="agora">Dashboard</li>
-                <li>
-                    <a href="./login.html">Login</a>
-                </li>
-                <li>
-                    <a href="./cadastro.html">Cadastro</a>
-                </li>
-            </ul>
+            <h2>Olá <span id="b_usuario"></span>, seja bem-vindo/a!</h2>
+            <div onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
         </div>
     </div>
 
     <div class="dashboard">
         <div class="container">
-            <h2>Olá <span id="b_usuario"></span>, seja bem-vindo/a!</h2>
                 <div class="caixa_pergunta">
                     <h2>Preencha o formulário antes de iniciar os exercícios!</h2>
                     <div class="formulario">

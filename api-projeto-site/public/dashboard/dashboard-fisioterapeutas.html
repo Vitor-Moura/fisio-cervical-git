@@ -26,9 +26,12 @@
 <body onload="validarSessaoFisioterapeutas()">
     <div class="header">
         <div class="container">
-            <a href="./index.html"><img src="..\assets\imgs\logo-fisio-cervical-white.png"
-                    alt="logotipo-fisio-cervical" style="height: 50px;"></a>
-            <ul class="navbar">
+            <!-- <img src="..\assets\imgs\logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical" style="height: 50px;"> -->
+            <h1>Olá <span id="b_fisioterapeuta"></span>, seja bem-vindo/a!</h1>
+            <div onclick="limparSessaoFisioterapeutas()">
+                <h3>Sair</h3>
+            </div>
+            <!-- <ul class="navbar">
                 <li>
                     <a href="./index.html">Home</a>
                 </li>
@@ -43,14 +46,49 @@
                 <li>
                     <a href="./cadastro.html">Cadastro</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 
     <div class="dashboard">
         <div class="container">
-            <h1>Olá <span id="b_fisioterapeuta"></span>, seja bem-vindo/a!</h1>
-   
+
+
+            <div class="banner-login ">
+                <div class="container ">
+                    <div class="card-cadastro">
+                        <h2>Cadastrar Paciente</h2>
+                        <div class="formulario">
+                            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                                Nome:
+                                <input name="nome" type="text" placeholder="João da Silva">
+                                <br>
+                                E-mail:
+                                <input name="email" type="text" placeholder="meuemail@provedor.com">
+                                <br>
+                                Senha:
+                                <input name="senha" type="password" placeholder="******">
+                                <br>
+                                Confirmação da Senha:
+                                <input name="confirmacao-senha" type="password" placeholder="******">
+                                <br>
+                                Código do fisioterapeuta responsável:
+                                <input name="cod_fisio" type="text" placeholder="102">
+                                <br>
+                                <button class="btn">Cadastrar</button>
+                            </form>
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="../assets/circle-loading.gif" id="loading-gif">
+                        </div>
+
+                        <div id="div_erros_login">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Gráficos -->
             <!-- <div class="graficos_container">
                 <h2>Acompanhe a evolução do seu nível de dor no gráfico abaixo</h2>
@@ -59,6 +97,7 @@
                 </div>
 
             </div> -->
+
 
             <div id="descricao_container" class="descricao_container">
                 <h2>Acompanhe aqui o histórico dos pacientes</h2>
@@ -79,6 +118,81 @@
 
 <script>
 
+    // CASDASTRANDO USUÁRIO
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = formulario.get("nome");
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+        var confirmacaoSenha = formulario.get("confirmacao-senha");
+        var cod_fisio = formulario.get("cod_fisio");
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || cod_fisio == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "") {
+                console.log('nome está em branco')
+            }
+            if (email == "") {
+                console.log('email está em branco')
+            }
+            if (senha == "") {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            if (cod_fisio == "") {
+                console.log('cod_fisio está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (senha != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                // window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+
     // var vt_nivelDor1 = [];
 
     // TRAZENDO OS DADOS DO BANCO DE DADOS
@@ -97,7 +211,7 @@
                 Nível de dor: ${nivel1}<br>
                 Descrição: ${descricao1}<br><br>`;
 
-                
+
                 // vt_nivelDor1.push(nivel1);
                 // ATUALIZANDO GRÁFICO
                 // myChart.update();
@@ -177,7 +291,7 @@
 
     //         ]
     //     },
-       
+
     //     options: {
     //         plugins: {  
     //             legend: {
