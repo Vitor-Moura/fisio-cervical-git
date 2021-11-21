@@ -24,6 +24,31 @@ function listar(req, res) {
     );
 }
 
+function listarPorUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    pretreinoModel.listarPorUsuario(idUsuario)
+    .then(
+        function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }
+    )
+    .catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "Houve um erro ao buscar os avisos: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 function cadastrar(req, res) {
     var nivelDor1 = req.body.nivelDor1;
     var descDor1 = req.body.descDor1;
@@ -57,6 +82,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     cadastrar,
-    listar,   
+    listar,
+    listarPorUsuario,   
     testar
 }

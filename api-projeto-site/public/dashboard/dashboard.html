@@ -23,7 +23,7 @@
 
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), atualizar()">
     <div class="header">
         <div class="container">
             <h2>Olá <span id="b_usuario"></span>, seja bem-vindo/a!</h2>
@@ -36,27 +36,27 @@
 
     <div class="dashboard">
         <div class="container">
-                <div class="caixa_pergunta">
-                    <h2>Preencha o formulário antes de iniciar os exercícios!</h2>
-                    <div class="formulario">
-                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                            Qual seu nível de dor?
-                            <input name="nivelDor1" type="text" placeholder="Ex: 7">
-                            <br>
-                            Descrição.
-                            <input name="descDor1" type="text"
-                                placeholder="Ex: Dor do lado esquerdo do pescoço e braço esquerdo furmigando">
-                            <br>
-                            <button>Iniciar</button>
-                        </form>
-                    </div>
-                    <div id="div_aguardar" class="loading-div">
-                        <img src="../assets/circle-loading.gif" id="loading-gif">
-                    </div>
-                    <div id="div_erros_login">
-                    </div>
+            <div class="caixa_pergunta">
+                <h2>Preencha o formulário antes de iniciar os exercícios!</h2>
+                <div class="formulario">
+                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        Qual seu nível de dor?
+                        <input name="nivelDor1" type="text" placeholder="Ex: 7">
+                        <br>
+                        Descrição.
+                        <input name="descDor1" type="text"
+                            placeholder="Ex: Dor do lado esquerdo do pescoço e braço esquerdo furmigando">
+                        <br>
+                        <button>Iniciar</button>
+                    </form>
                 </div>
-         
+                <div id="div_aguardar" class="loading-div">
+                    <img src="../assets/circle-loading.gif" id="loading-gif">
+                </div>
+                <div id="div_erros_login">
+                </div>
+            </div>
+
 
             <!-- Gráficos -->
             <div class="graficos_container">
@@ -156,24 +156,30 @@
 
     var vt_nivelDor1 = [];
 
-    // TRAZENDO OS DADOS DO BANCO DE DADOS
-    fetch('/pretreinos/listar', { method: 'get' }).then(function (resultado) {
-        console.log("resultado: " + resultado);
-        resultado.json().then(function (resultadoFormatado) {
-            console.log("RESULTADO FORMATADO:", resultadoFormatado);
-            for (var i = 0; i < resultadoFormatado.length; i++) {
-                var descricao1 = resultadoFormatado[i].descDor1;
-                var dataHora1 = resultadoFormatado[i].data1;
-                descricao.innerHTML += `${dataHora1} <br> ${descricao1}<br><br>`;
 
-                var dor1 = resultadoFormatado[i].nivelDor1;
-                vt_nivelDor1.push(dor1);
-                // ATUALIZANDO GRÁFICO
-                myChart.update();
-            }
-        })
-    }).catch(function (erro) {
-    });
+    // TRAZENDO OS DADOS DO BANCO DE DADOS
+    function atualizar() {
+
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/pretreinos/listar/${idUsuario}`, { method: 'get' }).then(function (resultado) {
+            console.log("resultado: " + resultado);
+            resultado.json().then(function (resultadoFormatado) {
+                console.log("RESULTADO FORMATADO:", resultadoFormatado);
+                for (var i = 0; i < resultadoFormatado.length; i++) {
+                    var descricao1 = resultadoFormatado[i].descDor1;
+                    var dataHora1 = resultadoFormatado[i].data1;
+                    descricao.innerHTML += `${dataHora1} <br> ${descricao1}<br><br>`;
+
+                    var dor1 = resultadoFormatado[i].nivelDor1;
+                    vt_nivelDor1.push(dor1);
+                    // ATUALIZANDO GRÁFICO
+                    myChart.update();
+                }
+            })
+        }).catch(function (erro) {
+        });
+    }
 
 
     //Gráfico de Linha
