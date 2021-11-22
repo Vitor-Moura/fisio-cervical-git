@@ -31,6 +31,7 @@
 
 
     <h1 class="exercicios_titulo">Série de Exercícios de Nível Intenso</h1>
+    <h3 class="exercicios_titulo">Duração máxima de 360 segundos em cada exercício</h3>
 
     <div id="div_ex_a" class="exercicios">
         <!-- Excercício 1 -->
@@ -47,8 +48,8 @@
                 <div class="div_duracao">
                     <input type="number" placeholder="Duração do Cronômetro" id="ipt_duracao1" class="ipt_duracao">
                     <p class="interrogacao">?</p>
-                    <span class="informacoes">Digite apenas números! Este número representará a quantidade em segundos
-                        da duração do cronômetro</span>
+                    <span class="informacoes">Este número representará a quantidade em segundos
+                        da duração do cronômetro. Máximo de 360 segundos</span>
                 </div>
                 <div class="cronometro">
                     <button id="id_iniciar1" onclick="iniciar1()">Iniciar Cronômetro</button>
@@ -173,6 +174,9 @@
         if (index1 <= 0) {
             alert('Digite um número que represente a duração do cronômetro');
         }
+        else if (index1 > 360){
+            alert('A duração máxima do cronômetro é de 360 segundos');
+        }
         else {
             mostrar_contagem1 = setInterval('mostrar1()', 1000);
             id_iniciar1.style.display = "none";
@@ -214,6 +218,9 @@
         index2 = Number(ipt_duracao2.value);
         if (index2 <= 0) {
             alert('Digite um número que represente a duração do cronômetro');
+        }
+        else if (index2 > 360){
+            alert('A duração máxima do cronômetro é de 360 segundos');
         }
         else {
             mostrar_contagem2 = setInterval('mostrar2()', 1000);
@@ -257,6 +264,9 @@
         if (index3 <= 0) {
             alert('Digite um número que represente a duração do cronômetro');
         }
+        else if (index3 > 360){
+            alert('A duração máxima do cronômetro é de 360 segundos');
+        }
         else {
             mostrar_contagem3 = setInterval('mostrar3()', 1000);
             id_iniciar3.style.display = "none";
@@ -298,6 +308,9 @@
         index4 = Number(ipt_duracao4.value);
         if (index4 <= 0) {
             alert('Digite um número que represente a duração do cronômetro');
+        }
+        else if (index4 > 360){
+            alert('A duração máxima do cronômetro é de 360 segundos');
         }
         else {
             mostrar_contagem4 = setInterval('mostrar4()', 1000);
