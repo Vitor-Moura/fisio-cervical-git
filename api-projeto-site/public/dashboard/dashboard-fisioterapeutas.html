@@ -90,13 +90,15 @@
             </div>
 
             <!-- Gráficos -->
-            <!-- <div class="graficos_container">
-                <h2>Acompanhe a evolução do seu nível de dor no gráfico abaixo</h2>
+            <div class="graficos_container">
+                <h2>Acompanhe a evolução do quadro clínico dos pacientes no gráfico abaixo</h2>
+                <input type="text" id="ipt_id_usuario" placeholder="Digite o código do paciente">
+                <button onclick="atualizarGrafico()">Atualizar Gráfico</button>
                 <div class="graph">
                     <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
                 </div>
 
-            </div> -->
+            </div>
 
 
             <div id="descricao_container" class="descricao_container">
@@ -205,124 +207,147 @@
                 var dataHora1 = resultadoFormatado[i].data1;
                 var nivel1 = resultadoFormatado[i].nivelDor1;
                 var nome_paciente = resultadoFormatado[i].paciente_nome;
+                var codigo_paciente = resultadoFormatado[i].paciente_id;
                 descricao.innerHTML += `
                 <b>Paciente: ${nome_paciente}</b><br>
+                Código do paciente: ${codigo_paciente}<br>
                 ${dataHora1}<br>
                 Nível de dor: ${nivel1}<br>
                 Descrição: ${descricao1}<br><br>`;
-
-
-                // vt_nivelDor1.push(nivel1);
-                // ATUALIZANDO GRÁFICO
-                // myChart.update();
             }
         })
     }).catch(function (erro) {
     });
 
+// BUSCANDO DADOS DE APENAS UM USUÁRIO
+    var vt_nivelDor1 = [];
 
-    //Gráfico de Linha
-    // var ctx = document.getElementById('chartLine').getContext('2d');
+    function atualizarGrafico() {
 
-    // var myChart = new Chart(ctx, {
-    //     type: 'line',
-    //     data: {
-    //         labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-    //         datasets: [{
-    //             label: 'Antes dos exercícios',
-    //             data: vt_nivelDor1,
-    //             backgroundColor: [
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089'
-    //             ],
+        var idUsuario = ipt_id_usuario.value;
+        while(vt_nivelDor1.length) {
+            vt_nivelDor1.pop();
+}
+        fetch(`/pretreinos/listar/${idUsuario}`, { method: 'get' }).then(function (resultado) {
+            console.log("resultado: " + resultado);
+            resultado.json().then(function (resultadoFormatado) {
+                console.log("RESULTADO FORMATADO:", resultadoFormatado);
+                for (var i = 0; i < resultadoFormatado.length; i++) {
 
-    //             borderColor: [
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089',
-    //                 '#ff000089'
-    //             ],
-    //             borderWidth: 1
-    //         },
-    //         {
-    //             label: 'Depois dos exercícios',
-    //             data: vt_nivelDor1,
-    //             backgroundColor: [
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8'
-    //             ],
+                    var dor1 = resultadoFormatado[i].nivelDor1;
+                    vt_nivelDor1.push(dor1);
+                    // ATUALIZANDO GRÁFICO
+                    myChart.update();
+                    ipt_id_usuario.value = '';
+                }
+            })
+        }).catch(function (erro) {
+        });
+    }
 
-    //             borderColor: [
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8',
-    //                 '#00c0e8'
-    //             ],
-    //             borderWidth: 2.5
-    //         }
 
-    //         ]
-    //     },
+        //Gráfico de Linha
+        var ctx = document.getElementById('chartLine').getContext('2d');
 
-    //     options: {
-    //         plugins: {  
-    //             legend: {
-    //                 labels: {
-    //                     color: "white",
-    //                 }
-    //             }
-    //         },
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true,
-    //                 max: 10,
-    //                 ticks: {
-    //                     color: "white",
-    //                 },
-    //                 grid: {
-    //                     color: "#ffffff4a",
-    //                 }
-    //             },
-    //             x: {
-    //                 ticks: {
-    //                     color: "white",
-    //                 },
-    //                 grid: {
-    //                     color: "#ffffff4a",
-    //                 }
-    //             }
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        datasets: [{
+            label: 'Antes dos exercícios',
+            data: vt_nivelDor1,
+            backgroundColor: [
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089'
+            ],
 
-    //         }
-    //     }
-    // });
+            borderColor: [
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089',
+                '#ff000089'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Depois dos exercícios',
+            data: vt_nivelDor1,
+            backgroundColor: [
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8'
+            ],
+
+            borderColor: [
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8',
+                '#00c0e8'
+            ],
+            borderWidth: 2.5
+        }
+
+        ]
+    },
+    // gráfico Y começando do zero e termiando no 10 
+    options: {
+        plugins: {  // 'legend' now within object 'plugins {}'
+            legend: {
+                labels: {
+                    color: "white",
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 10,
+                ticks: {
+                    color: "white",
+                },
+                grid: {
+                    color: "#ffffff4a",
+                }
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                },
+                grid: {
+                    color: "#ffffff4a",
+                }
+            }
+
+        }
+    }
+});
 
 
     // let proximaAtualizacao;
