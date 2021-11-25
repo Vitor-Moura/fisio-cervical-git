@@ -62,6 +62,7 @@ function entrar (req, res) {
 function cadastrar(req, res) {
     var nome = req.body.nome;
     var email = req.body.email;
+    var celular = req.body.celular;
     var senha = req.body.senha;
     var cod_fisio = req.body.cod_fisio;
 
@@ -71,10 +72,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    }  else if (celular == undefined) {
+        res.status(400).send("Seu celular está undefined!");
     } else if (cod_fisio == undefined) {
         res.status(400).send("O código do fisioterapeuta está undefined!");
     }else {
-        usuarioModel.cadastrar(nome, email, senha, cod_fisio)
+        usuarioModel.cadastrar(nome, email, senha, celular, cod_fisio)
         .then(
             function (resultado) {
                 res.json(resultado);

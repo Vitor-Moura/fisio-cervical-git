@@ -47,6 +47,10 @@ body {
     margin: 20px 0;
 }
 
+.graficos_container input{
+    height: 26px;
+}
+
 .graficos_container:hover {
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.24);
     transition: 0.3s;
@@ -62,7 +66,6 @@ body {
 .descricao_container {
     width: 100%;
     border: 1px solid white;
-    /* text-align: left; */
     margin: 20px 0;
     text-align: center;
 }
@@ -75,4 +78,60 @@ body {
 .descricao {
     padding: 20px 100px;
     text-align: left;
+}
+
+.dados_paciente {
+    padding: 20px 100px;
+    text-align: left;
+}
+
+/* CADASTRO DE USUÁRIOS */
+.card-cadastro .formulario {
+    width: 90%;
+    /* padding: 40px; */
+}
+.card-cadastro {
+    width: 100%;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card-cadastro:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.24);
+    transition: 0.3s;
+}
+
+.card-cadastro button {
+    width: 150px;
+    align-self: flex-end;
+    margin: 10px 0 20px 0;
+}
+
+
+.lado-a-lado {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.lado-a-lado input {
+    /* width: ; */
+}
+
+.cima-baixo1, .cima-baixo2 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+
+}
+
+.cima-baixo1 {
+    margin-right: 5px;
+}
+.cima-baixo2 {
+    margin-left: 5px;
 }

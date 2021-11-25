@@ -42,7 +42,7 @@
                     <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                         Nesse momento, qual seu nível de dor em uma escala de 0 a 10? <br>
                         Onde 0 é sem dor e 10 é com muita dor.
-                        <input name="nivelDor1" type="text" placeholder="Ex: 7">
+                        <input name="nivelDor1" type="number" placeholder="Ex: 7">
                         <br>
                         Descrição.
                         <input name="descDor1" type="text"
@@ -125,6 +125,16 @@
             return false;
         }
 
+        if (nivelDor1 > 10 || nivelDor1 < 0) {
+
+            window.alert("O seu nível de dor deve estar entre 0 e 10");
+            if (nivelDor1 > 10 || nivelDor1 < 0) {
+                console.log('nivelDor1 está maior que 10 ou menor que 0')
+            }
+            finalizarAguardar();
+            return false;
+        }
+
         // ENVIANDO DADOS DO FORMULÁRIO
         fetch(`/pretreinos/cadastrar/${idUsuario}`, {
             method: "POST",
@@ -190,38 +200,39 @@
         type: 'line',
         data: {
             labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-            datasets: [{
-                label: 'Antes dos exercícios',
-                data: vt_nivelDor1,
-                backgroundColor: [
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089'
-                ],
+            datasets: [
+            //     {
+            //     label: 'Antes dos exercícios',
+            //     data: vt_nivelDor1,
+            //     backgroundColor: [
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089'
+            //     ],
 
-                borderColor: [
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089',
-                    '#ff000089'
-                ],
-                borderWidth: 1
-            },
+            //     borderColor: [
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089',
+            //         '#ff000089'
+            //     ],
+            //     borderWidth: 1
+            // },
             {
-                label: 'Depois dos exercícios',
+                label: 'Nível de Dor',
                 data: vt_nivelDor1,
                 backgroundColor: [
                     '#00c0e8',
