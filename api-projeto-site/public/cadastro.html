@@ -138,6 +138,12 @@
             finalizarAguardar();
             return false;
         }
+
+        if (senha.length < 6) {
+            window.alert("A senha precisa conter no mínimo 6 dígitos");
+            finalizarAguardar();
+            return false;
+        }
         
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");

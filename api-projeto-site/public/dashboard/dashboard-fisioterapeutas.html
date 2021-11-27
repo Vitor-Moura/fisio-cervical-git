@@ -10,7 +10,7 @@
 
     <script src="../assets/js/funcoes.js"></script>
 
-    <link rel="icon" href="./assets/icon/favicon-fisio-cervical.png">
+    <link rel="icon" href="../assets/icon/favicon-fisio-cervical.png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,7 +27,7 @@
     <div class="header">
         <div class="container">
             <!-- <img src="..\assets\imgs\logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical" style="height: 50px;"> -->
-            <h1>Olá <span id="b_fisioterapeuta"></span>, seja bem-vindo/a!</h1>
+            <h2>Fisioterapeuta: <span id="b_fisioterapeuta"></span></h2>
             <div onclick="limparSessaoFisioterapeutas()">
                 <h3>Sair</h3>
             </div>
@@ -63,11 +63,11 @@
                         <div class="lado-a-lado">
                             <div class="cima-baixo1">
                                 Nome:
-                                <input name="nome" type="text" placeholder="João da Silva">
+                                <input name="nome" type="text" placeholder="Nome do paciente">
                             </div>
                             <div class="cima-baixo2">
                                 E-mail:
-                                <input name="email" type="text" placeholder="meuemail@provedor.com">
+                                <input name="email" type="text" placeholder="emailpaciente@provedor.com">
                             </div>
                         </div>
                         <br>
@@ -78,7 +78,7 @@
                             </div>
                             <div class="cima-baixo2">
                                 Código do fisioterapeuta responsável:
-                                <input name="cod_fisio" type="text" placeholder="102">
+                                <input name="cod_fisio" type="text" placeholder="XXX">
                             </div>
                         </div>
                         <br>
@@ -159,7 +159,7 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
         var cod_fisio = formulario.get("cod_fisio");
 
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        // VALIDAÇÃO DE CAMPO 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || cod_fisio == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
@@ -187,6 +187,12 @@
 
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (senha.length < 6) {
+            window.alert("A senha precisa conter no mínimo 6 dígitos");
             finalizarAguardar();
             return false;
         }
@@ -234,13 +240,15 @@
                 var nivel1 = resultadoFormatado[i].nivelDor1;
                 var ax_nome_paciente = resultadoFormatado[i].paciente_nome;
                 var codigo_paciente = resultadoFormatado[i].paciente_id;
+                var codigo_fisioterapeuta = resultadoFormatado[i].idFisioterapeuta;
                 descricao.innerHTML += `
                 <b>Paciente: ${ax_nome_paciente}</b><br>
                 Código do paciente: ${codigo_paciente}<br>
                 ${dataHora1}<br>
                 Nível de dor: ${nivel1}<br>
-                Descrição: ${descricao1}<br><br>`;
+                Descrição: ${descricao1}<br><br>`; 
             }
+            b_fisioterapeuta.innerHTML += `<br><span style="font-size: 16px;">Código: ${codigo_fisioterapeuta}</span>`; 
         })
     }).catch(function (erro) {
     });
@@ -251,6 +259,13 @@
     function atualizarGrafico() {
 
         var idUsuario = ipt_id_usuario.value;
+
+        if (idUsuario == ''){
+            alert (`Informe o código do paciente!`)
+        }
+
+        else {
+
         while (vt_nivelDor1.length) {
             vt_nivelDor1.pop();
         }
@@ -260,6 +275,7 @@
                 console.log("RESULTADO FORMATADO:", resultadoFormatado);
                 for (var i = 0; i < resultadoFormatado.length; i++) {
                     var dor1 = resultadoFormatado[i].nivelDor1;
+
                     vt_nivelDor1.push(dor1);
                     // ATUALIZANDO GRÁFICO
                     myChart.update();    
@@ -271,7 +287,7 @@
         }).catch(function (erro) {
         });
     }
-
+    }
 
     //Gráfico de Linha
     var ctx = document.getElementById('chartLine').getContext('2d');
