@@ -18,9 +18,12 @@ function validarSessaoFisioterapeutas() {
 
     var email = sessionStorage.EMAIL_FISIOTERAPEUTA;
     var nome = sessionStorage.NOME_FISIOTERAPEUTA;
+    var id = sessionStorage.ID_FISIOTERAPEUTA;
     
     if (email != null && nome != null) {
-        b_fisioterapeuta.innerHTML = nome;       
+        // b_fisioterapeuta.innerHTML = `${nome}<br>Código: ${id}`; 
+        b_fisioterapeuta.innerHTML = `<h2 style="margin-bottom: 0px";>Fisioterapeuta: ${nome}</h2>
+        <span style="font-size: 16px;">Código: ${id}</span>`;      
         // finalizarAguardar();
     } else {
         window.location = "../login-fisioterapeutas.html";

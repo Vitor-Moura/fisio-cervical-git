@@ -4,7 +4,7 @@ function listar() {
     console.log("ACESSEI O pretreino MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
     SELECT
-    idFisioterapeuta,
+    fisioterapeuta.id,
     usuario.id as 'paciente_id',
     usuario.nome as 'paciente_nome',
     nivelDor1,
@@ -15,7 +15,7 @@ function listar() {
     JOIN usuario
         on fkUsuario=usuario.id
     JOIN fisioterapeuta
-        on fkFisioterapeuta = idFisioterapeuta
+        on fkFisioterapeuta = fisioterapeuta.id
     order by usuario.nome asc
     `;
     console.log("Executando a instrução SQL: \n"+instrucao);

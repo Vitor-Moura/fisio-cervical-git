@@ -27,7 +27,7 @@
     <div class="header">
         <div class="container">
             <!-- <img src="..\assets\imgs\logo-fisio-cervical-white.png" alt="logotipo-fisio-cervical" style="height: 50px;"> -->
-            <h2>Fisioterapeuta: <span id="b_fisioterapeuta"></span></h2>
+            <span id="b_fisioterapeuta"></span>
             <div onclick="limparSessaoFisioterapeutas()">
                 <h3>Sair</h3>
             </div>
@@ -49,6 +49,7 @@
             </ul> -->
         </div>
     </div>
+
 
     <div class="dashboard">
         <div class="container">
@@ -248,7 +249,6 @@
                 Nível de dor: ${nivel1}<br>
                 Descrição: ${descricao1}<br><br>`; 
             }
-            b_fisioterapeuta.innerHTML += `<br><span style="font-size: 16px;">Código: ${codigo_fisioterapeuta}</span>`; 
         })
     }).catch(function (erro) {
     });

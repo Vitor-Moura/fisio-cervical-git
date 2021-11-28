@@ -3,7 +3,7 @@ CREATE DATABASE fisiocervical;
 USE fisiocervical;
 
 CREATE TABLE fisioterapeuta (
-	idFisioterapeuta 	INT PRIMARY KEY AUTO_INCREMENT,
+	id				 	INT PRIMARY KEY AUTO_INCREMENT,
 	nome 				VARCHAR(50),
 	email 				VARCHAR(50),
 	senha 				VARCHAR(50)
@@ -31,3 +31,11 @@ CREATE TABLE pretreino (
 SELECT * FROM fisioterapeuta;
 SELECT * FROM usuario;
 SELECT * FROM pretreino;
+
+
+
+
+
+truncate table fisioterapeuta;
+truncate table usuario;
+truncate table pretreino;

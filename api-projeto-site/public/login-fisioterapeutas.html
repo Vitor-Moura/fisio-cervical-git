@@ -48,7 +48,7 @@
             <div class="card-login">
                 <h2>Bem-vindo/a Fisioterapeuta!</h2>
                 <div class="formulario">
-                    <form id="form_login" method="post" onsubmit="return entrar()">
+                    <form id="form_login_fisioterapeutas" method="post" onsubmit="return entrar()">
                         E-mail:
                         <input name="email" type="text" placeholder="Login">
                         <br>
@@ -100,13 +100,13 @@
 <script>
 
     function limparFormulario() {
-        document.getElementById("form_login").reset();
+        document.getElementById("form_login_fisioterapeutas").reset();
     }
 
     function entrar() {
         aguardar();
 
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login_fisioterapeutas")));
 
         var email = formulario.get("email");
         var senha = formulario.get("senha");
