@@ -378,15 +378,15 @@ form {
 }
 
 .loading-div {
-    width: 50px;
+    width: 30px;
     /* border: 3px solid pink; */
     margin: auto;
     display: none;
 }
 
 .loading-div img {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
 }
 
 /* PAGINA DOS GRÁFICOS */
