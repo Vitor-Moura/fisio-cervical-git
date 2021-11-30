@@ -241,10 +241,12 @@
                 var nivel1 = resultadoFormatado[i].nivelDor1;
                 var ax_nome_paciente = resultadoFormatado[i].paciente_nome;
                 var codigo_paciente = resultadoFormatado[i].paciente_id;
-                var codigo_fisioterapeuta = resultadoFormatado[i].idFisioterapeuta;
+                var nome_fisio_resp = resultadoFormatado[i].fisio_nome;
+                var codigo_fisioterapeuta = resultadoFormatado[i].fisio_id;
                 descricao.innerHTML += `
                 <b>Paciente: ${ax_nome_paciente}</b><br>
                 Código do paciente: ${codigo_paciente}<br>
+                Fisioterapeuta responsável: ${nome_fisio_resp}<br>
                 ${dataHora1}<br>
                 Nível de dor: ${nivel1}<br>
                 Descrição: ${descricao1}<br><br>`; 

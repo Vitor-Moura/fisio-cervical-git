@@ -16,7 +16,7 @@ CREATE TABLE usuario (
 	senha 				VARCHAR(50),
     celular 			VARCHAR(20),
     fkFisioterapeuta 	INT,
-    FOREIGN KEY (fkFisioterapeuta) REFERENCES fisioterapeuta(idFisioterapeuta)
+    FOREIGN KEY (fkFisioterapeuta) REFERENCES fisioterapeuta(id)
     )AUTO_INCREMENT=1000;
 
 CREATE TABLE pretreino (
@@ -31,6 +31,15 @@ CREATE TABLE pretreino (
 SELECT * FROM fisioterapeuta;
 SELECT * FROM usuario;
 SELECT * FROM pretreino;
+
+
+
+delete from fisioterapeuta where id = 102;
+delete from pretreino where idPretreino in (5,6);
+
+
+
+
 
 
 
